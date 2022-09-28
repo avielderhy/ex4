@@ -1,0 +1,31 @@
+version: '2'
+services:
+  BE:
+    container_name: backend
+    image: backend
+    build:
+      dockerfile: Dockerfile.backend
+      context: .
+    depends_on:
+      - "mysql"
+    restart: always
+  FE:
+    container_name: frontend
+    image: frontend
+    build:
+      dockerfile: Dockerfile.frontend
+      context: .
+    ports:
+      - "81:81"
+    depends_on:
+      - "BE"
+      - "mysql"
+    restart: always
+  mysql:
+    container_name: database
+    ports:
+      - "33060:3306"
+    image: "mysql:5.7.31"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: avield

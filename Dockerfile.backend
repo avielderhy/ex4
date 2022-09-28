@@ -1,0 +1,14 @@
+FROM python:3.9.2-slim
+
+RUN apt update && apt-get install -y \
+	gcc \
+	default-libmysqlclient-dev \
+	python-dev
+	
+COPY . .
+
+RUN pip install -r requirements.txt
+
+EXPOSE 81
+
+CMD ["python", "/app/backend.py"]
