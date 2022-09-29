@@ -20,3 +20,7 @@ def fill_data_base(num_of_meetings):
         sql = f"INSERT INTO `attendance` VALUES ({real_row});"
         cursor.execute(sql)
         conn.commit()
+
+    cursor.execute("SELECT * FROM attendance")
+    data = cursor.fetchall()  # data from database
+    return data

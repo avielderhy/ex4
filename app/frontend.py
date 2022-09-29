@@ -2,7 +2,6 @@ from flask import Flask, render_template
 import backend
 import os
 
-
 app = Flask(__name__, template_folder='../template')
 
 
