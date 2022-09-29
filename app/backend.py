@@ -1,7 +1,6 @@
 import attendance
 import pysftp
 import os
-import MySQLdb
 import database
 
 cnopts = pysftp.CnOpts()
