@@ -8,7 +8,6 @@ services:
       context: .
     depends_on:
       - "mysql"
-    restart: always
   FE:
     container_name: frontend
     image: frontend
